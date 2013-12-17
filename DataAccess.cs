@@ -442,10 +442,6 @@ namespace DBHelpers
             {
                 throw e;
             }
-            finally 
-            {
-                
-            }
         }
         //Returns a datareader object, w/out parameters.
         public static SqlDataReader ReturnReader(string strQuery, string Connection_String)
@@ -466,10 +462,6 @@ namespace DBHelpers
             {
                 throw e;
             }
-            finally
-            {
-
-            }
         }
         //Returns a datareader object, for stored procedures.
         public static SqlDataReader ReturnReaderFromStoredProcedure(string strStoredProceduce, string Connection_String)
@@ -488,10 +480,6 @@ namespace DBHelpers
             catch (Exception e)
             {
                 throw e;
-            }
-            finally
-            {
-
             }
         }
         //Just in case, this method forces the pre-declared SQL connection to close.
