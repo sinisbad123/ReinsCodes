@@ -42,6 +42,7 @@ namespace DBHelpers
         // This is to handle insert, update, and delete with parameter(s)
         public static void DataProcessExecuteNonQuery(string strQuery, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -59,15 +60,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to handle insert, update, and delete without parameters
         public static void DataProcessExecuteNonQuery(string strQuery, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -83,15 +82,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to return a single value read with the use of parameter(s)
         public static string ReturnData(string strQuery, SqlParameter[] Parameter, string Connection_String, string Field_Name)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -113,15 +110,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to return a single value read without the use of parameters
         public static string ReturnData(string strQuery, string Connection_String, string Field_Name)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -142,15 +137,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to determine if a value returned by the provided SQL statement exists
         public static bool DetermineIfExisting(string strQuery, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -177,15 +170,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to determine if a value returned by the provided SQL statement exists
         public static bool DetermineIfExisting(string strQuery, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -211,15 +202,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to determine the number of entries in a given table with the use of parameters
         public static int DetermineEntryCount(string strQuery, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -241,15 +230,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to determine the number of entries in a given table without the use of parameters
         public static int DetermineEntryCount(string strQuery, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -270,16 +257,14 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to return a DataSet object for the use of relevant ASP.Net tools (ListView, GridView, etc.)
         // with the use of parameters
         public static DataSet DataProcessReturnData(string strQuery, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -299,16 +284,14 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to return a DataSet object for the use of relevant ASP.Net tools (ListView, GridView, etc.)
         // without the use of parameters
         public static DataSet DataProcessReturnData(string strQuery, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -327,15 +310,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to execute stored procedures with a DataSet return type with the use of parameters
         public static DataSet StoredProcedureGetData(string storedProc, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -355,15 +336,13 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
         // This is to execute stored procedures with a DataSet return type without the use of parameters
         public static DataSet StoredProcedureGetData(string storedProc, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -382,10 +361,7 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
 
@@ -393,6 +369,7 @@ namespace DBHelpers
         // Works for INSERT statements only
         public static int InsertAndGetIndex(string strQuery, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -413,10 +390,7 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
 
@@ -424,6 +398,7 @@ namespace DBHelpers
         // Works for INSERT statements only
         public static int InsertAndGetIndex(string strQuery, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -443,16 +418,14 @@ namespace DBHelpers
             }
             finally
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
             }
         }
 
         //Returns a datareader object, w/parameters.
         public static SqlDataReader ReturnReader(string strQuery, SqlParameter[] Parameter, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -466,11 +439,8 @@ namespace DBHelpers
                 return dr;                
             }
             catch (Exception e)
-            {     
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+            {
+                ForceConnectionToClose();
                 throw e;
             }
             finally 
@@ -481,6 +451,7 @@ namespace DBHelpers
         //Returns a datareader object, w/out parameters.
         public static SqlDataReader ReturnReader(string strQuery, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -494,10 +465,7 @@ namespace DBHelpers
             }
             catch (Exception e)
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
                 throw e;
             }
             finally
@@ -508,6 +476,7 @@ namespace DBHelpers
         //Returns a datareader object, for stored procedures.
         public static SqlDataReader ReturnReaderFromStoredProcedure(string strStoredProceduce, string Connection_String)
         {
+            ForceConnectionToClose();
             myConnection.ConnectionString = Connection_String;
             try
             {
@@ -520,10 +489,7 @@ namespace DBHelpers
             }
             catch (Exception e)
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
+                ForceConnectionToClose();
                 throw e;
             }
             finally
@@ -534,16 +500,9 @@ namespace DBHelpers
         //Just in case, this method forces the pre-declared SQL connection to close.
         public static void ForceConnectionToClose()
         {
-            try
+            if (myConnection.State == ConnectionState.Open)
             {
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Close();
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
+                myConnection.Close();
             }
         }
     }
