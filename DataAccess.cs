@@ -440,7 +440,6 @@ namespace DBHelpers
             }
             catch (Exception e)
             {
-                ForceConnectionToClose();
                 throw e;
             }
             finally 
@@ -465,7 +464,6 @@ namespace DBHelpers
             }
             catch (Exception e)
             {
-                ForceConnectionToClose();
                 throw e;
             }
             finally
@@ -489,7 +487,6 @@ namespace DBHelpers
             }
             catch (Exception e)
             {
-                ForceConnectionToClose();
                 throw e;
             }
             finally
